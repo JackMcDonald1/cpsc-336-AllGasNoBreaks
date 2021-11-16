@@ -6,3 +6,4 @@
 # lead Developer: Abby Contreras
 # Web Administrator: Ellie Miley
 # Database Administrator: Patrick Tehan
+# initial project info

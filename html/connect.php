@@ -3,7 +3,7 @@
 //Professor Kreider
 //based one example from https://www.w3schools.com/Php/php_mysql_connect.asp
 echo("hello world, this is from php<br>");
-$servername = "right";
+$servername = "192.168.150.4";
 $username   = "student";
 $password   = "password";
 $dbname     = "customercount";

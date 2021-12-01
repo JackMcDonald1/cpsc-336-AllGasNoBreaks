@@ -7,8 +7,8 @@ include 'connect.php';
 $sql = "SELECT * from customers";
 $result = $conn->query($sql);
 
-//$row = $result->fetch_assoc();
-//$value = $row["customer_count"];
+$row = $result->fetch_assoc();
+$value = $row["customer_count"];
 
 
 if(isset($_POST["INSERT"])) {
@@ -16,6 +16,7 @@ if(isset($_POST["INSERT"])) {
 //	$sql = "SELECT * from customers";
 //	$result = $conn->query($sql);
 	$insert = "INSERT INTO customers (customers_count) VALUES (1)";
+//	$insert = "update customers set customer_count = customer_count+1";
 	$conn->query($insert);
 }
 

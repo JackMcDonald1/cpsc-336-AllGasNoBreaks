@@ -28,6 +28,7 @@ $conn->close();
 
 <form method=post>
 	<input type="submit" name="sql1" value="sql1"/>
+	<input type="submit" name="sql" value="sql"/>
 
 </form>
 </html>

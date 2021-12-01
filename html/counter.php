@@ -4,26 +4,28 @@
 include 'connect.php';
 
 
-//$sql = "SELECT * from customers";
-//$result = $conn->query($sql);
+$sql = "SELECT * from customers";
+$result = $conn->query($sql);
 
 //$row = $result->fetch_assoc();
 //$value = $row["customer_count"];
 
 
-if(isset($_POST["button"])) {
+if(isset($_POST["INSERT"])) {
 //	$insert = "Insert into customers values ($value++)";
-	$insert = "update customers set customer_count = customer_count+1";
+//	$sql = "SELECT * from customers";
+//	$result = $conn->query($sql);
+	$insert = "INSERT INTO customers (customers_count) VALUES (1)";
 	$conn->query($insert);
 }
 
 if(isset($_POST["subtract"]))	{
-	$insert = "update customers set customer_count = customer_count-1";
+	$insert = "UPDATE customers SET customer_count = customer_count-1";
 	$conn->query($insert);
 }
 
 if(isset($_POST["reset"]))	{
-	$insert = "update customers set customer_count=0";
+	$insert = "UPDATE customers SET customer_count=0";
 	$conn->query($insert);
 }
 
@@ -37,9 +39,9 @@ if(isset($_POST["reset"]))	{
 
 
 <form>
-	<input type="submit" name = "button" value="ADD">
-	<input type="submit" name="subtract" value="subtract">
-	<input type="submit" name="reset" value="reset">
+	<input type="submit" name = "INSERT" value="ADD">
+	<input type="submit" name="subtract" value="SUBTRACT">
+	<input type="submit" name="reset" value="RESET">
 </form>
 
 </html>

@@ -4,16 +4,18 @@
 include 'connect.php';
 
 
-$sql = "SELECT * from customers;";
-$result = $conn->query($sql);
+//$sql = "SELECT * from customers";
+//$result = $conn->query($sql);
 
-$row = $result->fetch_assoc();
-$value = $row["Customer_count"];
+//$row = $result->fetch_assoc();
+//$value = $row["customer_count"];
+//$counter = 0;
 
-
-if(isset(["increase"])) {
-	$sql1="insert into customers values ($result++);"
-	$conn->query($sql1)
+if(isset($_POST["button"])) {
+	//$insert = "Insert into customers values ($value++)";
+	$insert = "update customers set customer_count = customer_count+1";
+	echo $value;
+	$conn->query($insert);
 }
 
 
@@ -22,12 +24,10 @@ if(isset(["increase"])) {
 // if(isset(["inc"])) {
 // sql code
 // $conn->query($sql code variable)
-echo $sql;
-echo $sql1;
 
 ?>
-<form method="post">
-	<input type="submit" value="increase">
+<form method="POST">
+	<input type="submit" name = "button" value="ADD">
 	<input type="submit" value="createname">
 	<input type="submit" value="createname">
 </form>

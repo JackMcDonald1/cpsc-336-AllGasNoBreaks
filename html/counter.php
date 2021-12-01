@@ -9,12 +9,12 @@ include 'connect.php';
 
 //$row = $result->fetch_assoc();
 //$value = $row["customer_count"];
-//$counter = 0;
+
 
 if(isset($_POST["button"])) {
 	//$insert = "Insert into customers values ($value++)";
 	$insert = "update customers set customer_count = customer_count+1";
-	echo $value;
+//	echo $value;
 	$conn->query($insert);
 }
 

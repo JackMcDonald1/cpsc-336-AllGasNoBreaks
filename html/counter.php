@@ -2,47 +2,43 @@
 <?php
 
 include 'connect.php';
+$sql = "select customer_count from customers";
 
-
-$sql = "SELECT * from customers";
 $result = $conn->query($sql);
-
 $row = $result->fetch_assoc();
-$value = $row["customer_count"];
 
-
+echo "<br>Total customer count is: " .$row["customer_count"]. "<br>";
+	
 if(isset($_POST["INSERT"])) {
-//	$insert = "Insert into customers values ($value++)";
-//	$sql = "SELECT * from customers";
-//	$result = $conn->query($sql);
-	$insert = "INSERT INTO customers (customers_count) VALUES (1)";
-//	$insert = "update customers set customer_count = customer_count+1";
-	$conn->query($insert);
+	$insert = "update customers set customer_count = customer_count+1";
+	$ins = $conn->query($insert);
+//	echo "<br> Total customer count is: " .$row["customer_count"]."<br>";
 }
+			
 
 if(isset($_POST["subtract"]))	{
-	$insert = "UPDATE customers SET customer_count = customer_count-1";
-	$conn->query($insert);
+	$subtract = "UPDATE customers SET customer_count = customer_count-1";
+	$sub = $conn->query($subtract);
+				
+//	echo "<br> Total customer count is: " .$row["customer_count"]."<br>";
 }
 
 if(isset($_POST["reset"]))	{
-	$insert = "UPDATE customers SET customer_count=0";
-	$conn->query($insert);
+	$reset = "UPDATE customers SET customer_count=0";
+	$res = $conn->query($reset);
+//	echo "<br> Total customer count is: " .$row["customer_count"]."<br>";
 }
 
-//$sql = "insert into customers value (2)";
-
-// if(isset(["inc"])) {
-// sql code
-// $conn->query($sql code variable)
-
+//if(isset($_POST["INSERT"]) || isset($_POST["subtract"]) || isset($_POST["reset"])) {
+//	echo "<br> Total customer count is: " .$row["customer_count"]."<br>";
+//}
 ?>
 
 
-<form>
-	<input type="submit" name = "INSERT" value="ADD">
-	<input type="submit" name="subtract" value="SUBTRACT">
-	<input type="submit" name="reset" value="RESET">
+<form method="post">
+	<input type="submit" name = "INSERT" value="ADD"/>
+	<input type="submit" name="subtract" value="SUBTRACT"/>
+	<input type="submit" name="reset" value="RESET"/>
 </form>
 
 </html>
